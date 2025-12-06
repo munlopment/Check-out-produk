@@ -129,6 +129,22 @@
             cursor: pointer;
             font-size: 17px;
         }
+        .close-x {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555;
+}
+.close-x:hover {
+    color: black;
+}
+.popup-box {
+    position: relative; /* penting supaya X bisa nempel */
+}
+
     </style>
 
 </head>
@@ -212,19 +228,35 @@
             <button class="process-btn" onclick="showStep2()">Lihat Proses</button>
         </div>
 
-        <!-- STEP 2 -->
-        <div class="popup-box" id="step2" style="display:none;">
-            <h3>Pembayaran Selesai</h3>
-            <p>Silakan hubungi admin dengan link berikut:</p>
+       <!-- POPUP 2 STEP -->
+<div id="popup">
 
-            <a href="https://wa.me/6285282788041?text=Halo%20kak,%20saya%20sudah%20melakukan%20pembayaran.%20Berikut%20bukti%20pembayarannya%3A"
-               style="display:block; background:#25D366; padding:12px; border-radius:10px;
-               color:white; font-size:18px; margin-top:15px;">
-               Hubungi Admin via WhatsApp
-            </a>
-        </div>
+    <!-- STEP 1 -->
+    <div class="popup-box" id="step1">
+        <div class="close-x" onclick="closePopup()">×</div>
 
+        <h3>Scan QR untuk Membayar</h3>
+        <p>Nominal: <b>Rp 25.000</b></p>
+        <div class="qr-placeholder">QR DANA</div>
+
+        <button class="process-btn" onclick="showStep2()">Lihat Proses</button>
     </div>
+
+    <!-- STEP 2 -->
+    <div class="popup-box" id="step2" style="display:none;">
+        <div class="close-x" onclick="closePopup()">×</div>
+
+        <h3>Pembayaran Selesai</h3>
+        <p>Silakan hubungi admin dengan link berikut:</p>
+
+        <a href="https://wa.me/6285282788041?text=Halo%20kak,%20saya%20sudah%20melakukan%20pembayaran.%20Berikut%20bukti%20pembayarannya%3A"
+            style="display:block; background:#25D366; padding:12px; border-radius:10px;
+            color:white; font-size:18px; margin-top:15px;">
+            Hubungi Admin via WhatsApp
+        </a>
+    </div>
+
+</div>
 
     <script>
         function openPopup() {
