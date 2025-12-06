@@ -169,6 +169,34 @@
     .process-btn:hover {
         background: #005ec4;
     }
+    /* Ripple effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background: rgba(255,255,255,0.45);
+    animation: rippleAnim 0.6s linear;
+    pointer-events: none;
+}
+@keyframes rippleAnim {
+    to { transform: scale(3); opacity: 0; }
+}
+
+/* Premium Loading Spinner */
+.spinner {
+    width: 28px;
+    height: 28px;
+    border: 4px solid #ddd;
+    border-top-color: #007bff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: auto;
+    margin-bottom: 6px;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 </style>
 
 </head>
@@ -273,6 +301,99 @@
     function closePopup() {
         document.getElementById("popup").style.display = "none";
     }
+    // --- Ripple Button Effect ---
+document.querySelectorAll("button, .process-btn, .checkout-btn").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+        let circle = document.createElement("span");
+        circle.classList.add("ripple");
+        this.appendChild(circle);
+
+        let d = Math.max(this.clientWidth, this.clientHeight);
+        circle.style.width = circle.style.height = d + "px";
+        circle.style.left = e.clientX - this.offsetLeft - d / 2 + "px";
+        circle.style.top = e.clientY - this.offsetTop - d / 2 + "px";
+
+        setTimeout(() => circle.remove(), 600);
+    });
+});
+
+// --- Animasi Popup Masuk ---
+function animatePopup() {
+    const box = document.querySelector(".popup-box");
+    box.style.transform = "scale(0.8)";
+    box.style.opacity = "0";
+
+    setTimeout(() => {
+        box.style.transition = "0.25s ease";
+        box.style.transform = "scale(1)";
+        box.style.opacity = "1";
+    }, 20);
+}
+
+// --- Popup Shake Soft Effect ---
+function softShake() {
+    const box = document.querySelector(".popup-box");
+    box.animate([
+        { transform: "translateX(0)" },
+        { transform: "translateX(-4px)" },
+        { transform: "translateX(4px)" },
+        { transform: "translateX(0)" }
+    ], {
+        duration: 220,
+        easing: "ease-in-out"
+    });
+}
+
+// --- Animasi Glow Premium di QR ---
+function startQRGlow() {
+    const qr = document.querySelector(".qr-placeholder");
+    qr.animate(
+        [
+            { boxShadow: "0 0 0px rgba(0,150,255,0.0)" },
+            { boxShadow: "0 0 18px rgba(0,150,255,0.4)" },
+            { boxShadow: "0 0 0px rgba(0,150,255,0.0)" }
+        ],
+        {
+            duration: 3000,
+            iterations: Infinity,
+            easing: "ease-in-out"
+        }
+    );
+}
+
+// --- Loading Step Animation Premium ---
+function showLoadingThenNext() {
+    const step1 = document.getElementById("step1");
+    step1.innerHTML += `
+        <div id="loadingAnim" style="margin-top:15px; font-size:16px;">
+            <div class="spinner"></div>
+            Memverifikasi pembayaran...
+        </div>
+    `;
+
+    // Delay 1.7 detik sebelum masuk STEP 2
+    setTimeout(() => {
+        showStep2();
+    }, 1700);
+}
+
+// --- Override Lihat Proses Button ---
+document.querySelectorAll(".process-btn").forEach(btn => {
+    btn.onclick = () => {
+        softShake();
+        showLoadingThenNext();
+    };
+});
+
+// --- Popup Open Override ---
+function openPopup() {
+    document.getElementById("popup").style.display = "flex";
+    document.getElementById("step1").style.display = "block";
+    document.getElementById("step2").style.display = "none";
+
+    animatePopup();
+    startQRGlow();
+}
 </script>
 
 </body>
