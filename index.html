@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             background: #f5f5f5;
             margin: 0;
-            padding-bottom: 90px; /* ruang supaya konten tidak ketutup checkout bar */
+            padding-bottom: 90px;
         }
 
         .container {
@@ -22,7 +22,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* HEADER */
         .header {
             text-align: center;
             margin-bottom: 20px;
@@ -43,7 +42,6 @@
             font-size: 14px;
         }
 
-        /* ABOUT BOX */
         .about-box, .guarantee-box {
             background: #fafafa;
             padding: 15px;
@@ -59,7 +57,6 @@
             font-weight: bold;
         }
 
-        /* FIXED CHECKOUT BAR */
         .checkout-bar {
             position: fixed;
             bottom: 0;
@@ -89,7 +86,6 @@
             background: #d52d20;
         }
 
-        /* POPUP */
         #popup {
             display: none;
             position: fixed;
@@ -122,15 +118,16 @@
             font-weight: bold;
         }
 
-        .close-btn {
+        .process-btn {
             margin-top: 15px;
             padding: 10px;
             width: 100%;
-            background: #d9534f;
+            background: #007bff;
             border: none;
             color: white;
             border-radius: 8px;
             cursor: pointer;
+            font-size: 17px;
         }
     </style>
 
@@ -139,14 +136,12 @@
 
     <div class="container">
 
-        <!-- HEADER -->
         <header class="header">
             <img src="logo.png" class="logo">
             <h1>munlopment store</h1>
             <p>Premium Digital Services • Fast & Trusted</p>
         </header>
 
-        <!-- ABOUT -->
         <div class="about-box">
             <h3>Tentang Toko</h3>
             <p>munlopment store adalah penyedia layanan digital terpercaya sejak 2024.
@@ -155,11 +150,9 @@
             <div class="rating-box">⭐⭐⭐⭐⭐ 4.9/5 • 1.200+ pelanggan</div>
         </div>
 
-        <!-- PRODUK -->
         <h2>Netflix Premium 1 Bulan</h2>
         <img src="Foto produk.png" style="width:100%; border-radius:10px;">
 
-        <!-- GARANSI -->
         <div class="guarantee-box">
             <h3>Garansi & Keamanan</h3>
             <ul>
@@ -169,7 +162,6 @@
             </ul>
         </div>
 
-        <!-- DESKRIPSI -->
         <div style="line-height: 1.6;">
             <h2 style="text-align:center;">Deskripsi Produk</h2>
             <h3 style="text-align:center;">NETFLIX PREMIUM SHARING – 1 BULAN</h3>
@@ -193,8 +185,6 @@
                 <li>Dilarang diperjualbelikan ulang</li>
             </ol>
 
-            <hr>
-
             <h3>Instruksi Login</h3>
             <ul>
                 <li>Clear cache sebelum login</li>
@@ -206,37 +196,46 @@
 
     </div>
 
-    <!-- CHECKOUT MELAYANG -->
     <div class="checkout-bar">
         <button class="checkout-btn" onclick="openPopup()">Checkout • Rp 25.000</button>
     </div>
 
-    <!-- POPUP -->
+    <!-- POPUP 2 STEP -->
     <div id="popup">
-        <div class="popup-box">
+
+        <!-- STEP 1 -->
+        <div class="popup-box" id="step1">
             <h3>Scan QR untuk Membayar</h3>
             <p>Nominal: <b>Rp 25.000</b></p>
             <div class="qr-placeholder">QR DANA</div>
 
-            <p style="margin-top:10px;">Kirim bukti pembayaran ke WhatsApp:</p>
-            <a href="https://wa.me/6285282788041?text=Halo%20kak,%20saya%20sudah%20melakukan%20pembayaran.%20Berikut%20bukti%20pembayarannya%3A" 
-               style="display:block; margin-top:5px; font-size:18px; font-weight:bold; color:#25D366;">
-               0852-8278-8041 (Klik untuk WhatsApp)
-            </a>
-
-
-            <button class="close-btn" onclick="closePopup()">Tutup</button>
+            <button class="process-btn" onclick="showStep2()">Lihat Proses</button>
         </div>
+
+        <!-- STEP 2 -->
+        <div class="popup-box" id="step2" style="display:none;">
+            <h3>Pembayaran Selesai</h3>
+            <p>Silakan hubungi admin dengan link berikut:</p>
+
+            <a href="https://wa.me/6285282788041?text=Halo%20kak,%20saya%20sudah%20melakukan%20pembayaran.%20Berikut%20bukti%20pembayarannya%3A"
+               style="display:block; background:#25D366; padding:12px; border-radius:10px;
+               color:white; font-size:18px; margin-top:15px;">
+               Hubungi Admin via WhatsApp
+            </a>
+        </div>
+
     </div>
 
     <script>
         function openPopup() {
             document.getElementById("popup").style.display = "flex";
         }
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
+        function showStep2() {
+            document.getElementById("step1").style.display = "none";
+            document.getElementById("step2").style.display = "block";
         }
     </script>
 
 </body>
 </html>
+
