@@ -9,39 +9,87 @@
 
 <body>
 
-<header class="header">
-    <img src="assets/images/logo.png" class="logo" alt="Logo">
-    <h1 class="title">Munlopment Store</h1>
+<!-- LOADER -->
+<div class="page-loader" id="loader">
+    <div class="loader-box">
+        <div class="spinner"></div>
+        <p>Memuat...</p>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <img src="assets/images/logo.png" class="logo" alt="Logo">
+        <div>
+            <h1 class="brand-title">Munlopment Store</h1>
+            <p class="brand-sub">Pelayanan cepat • Produk premium</p>
+        </div>
+    </div>
 </header>
 
-<nav class="nav">
-    <a href="index.html">Home</a>
-    <a class="active" href="product.html">Produk</a>
+<!-- NAV -->
+<nav class="main-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="product.html" class="nav-link active">Produk</a>
 </nav>
 
+<!-- SECTION PRODUK -->
 <section class="section">
-    <h2 class="section-title">Pilih Produk</h2>
+    <h2 class="section-title">Produk Digital</h2>
+    <p class="section-sub">Pilih produk terbaik untuk kebutuhan streaming Anda</p>
 
     <div class="product-grid">
 
-        <div class="product-card">
-            <img src="assets/images/products/netflix.png" alt="Netflix Sharing">
-            <h3>Netflix Akun Sharing (1 Profil • 1 Bulan)</h3>
-            <p class="price">Rp 25.000</p>
-            <button class="btn" onclick="checkout('Netflix Sharing • 1 Profil • 1 Bulan','25000')">Checkout</button>
+        <!-- CARD 1 -->
+        <div class="card">
+            <img src="assets/images/products/netflix.png" class="card-img" alt="Netflix Sharing">
+            <div class="card-body">
+                <h3 class="card-title">Netflix Sharing (1 Profil • 1 Bulan)</h3>
+                <p class="card-note">Garansi penuh • Akses aman</p>
+
+                <div class="card-footer">
+                    <span class="price">Rp 25.000</span>
+                    <button class="btn-sm" onclick="checkout('Netflix Sharing • 1 Profil • 1 Bulan', '25000')">
+                        Beli
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div class="product-card">
-            <img src="assets/images/products/netflix1.png" alt="Netflix Premium">
-            <h3>Netflix Akun Premium</h3>
-            <p class="price">Rp 190.000</p>
-            <button class="btn" onclick="checkout('Netflix Premium','190000')">Checkout</button>
+        <!-- CARD 2 -->
+        <div class="card">
+            <img src="assets/images/products/netflix1.png" class="card-img" alt="Netflix Premium">
+            <div class="card-body">
+                <h3 class="card-title">Netflix Premium (Full Garansi)</h3>
+                <p class="card-note">Kualitas UHD • Profil personal</p>
+
+                <div class="card-footer">
+                    <span class="price">Rp 190.000</span>
+                    <button class="btn-sm" onclick="checkout('Netflix Premium', '190000')">
+                        Beli
+                    </button>
+                </div>
+            </div>
         </div>
 
     </div>
 </section>
 
+<!-- FLOATING WA -->
+<a class="fab-wa" href="https://wa.me/6285282788041" target="_blank">
+    <img src="assets/icons/wa.svg" width="28">
+</a>
+
 <script src="assets/js/script.js"></script>
+
+<script>
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            document.getElementById("loader").classList.add("hide");
+        }, 400);
+    });
+</script>
 
 </body>
 </html>
