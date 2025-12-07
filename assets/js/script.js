@@ -1,5 +1,5 @@
 function goToProduct(name){
-    window.location.href = "product.html?type=" + name;
+    window.location.href = "product.html?name=" + name;
 }
 
 function checkout(name, price){
@@ -15,10 +15,12 @@ function loadCheckout(){
     document.getElementById("coName").innerText = name;
     document.getElementById("coPrice").innerText = "Rp " + price;
 
+    let qr = document.getElementById("qrImage");
+
     if(name.includes("Netflix")){
-        document.getElementById("qrImage").src = "assets/image/produk/qr-netflix.png";
+        qr.src = "assets/image/products/qr-netflix.png";
     } else {
-        document.getElementById("qrImage").src = "assets/image/produk/qr-spotify.png";
+        qr.src = "assets/image/products/qr-spotify.png";
     }
 }
 
@@ -26,10 +28,12 @@ function sendWA(){
     let name = localStorage.getItem("coName");
     let price = localStorage.getItem("coPrice");
 
-    let message = `Halo kak, saya sudah checkout:
+    let msg = 
+`Halo kak, saya sudah melakukan pembayaran.
 Produk: ${name}
-Total: Rp ${price}
+Harga: Rp ${price}
 Berikut bukti pembayaran saya.`;
 
-    window.location.href = "https://wa.me/62857xxxxxx?text=" + encodeURIComponent(message);
+    window.location.href =
+        "https://wa.me/62857XXXXXXX?text=" + encodeURIComponent(msg);
 }
