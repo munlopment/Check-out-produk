@@ -1,156 +1,129 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produk — Munlopment Store</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk — Munlopment Store</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
 <div class="page-loader" id="loader">
-    <div class="loader-box">
-        <div class="spinner"></div>
-        <p>Memuat...</p>
-    </div>
+  <div class="loader-box">
+    <div class="spinner"></div>
+    <p>Memuat...</p>
+  </div>
 </div>
 
 <header class="site-header">
-    <div class="header-inner">
-        <img src="assets/images/logo.png" class="logo" alt="Logo">
-        <div>
-            <h1 class="brand-title">Munlopment Store</h1>
-            <p class="brand-sub">Pelayanan cepat • Produk premium</p>
-        </div>
+  <div class="header-inner">
+    <img src="assets/images/logo.png" class="logo" alt="Logo">
+    <div>
+      <h1 class="brand-title">Produk</h1>
+      <p class="brand-sub">Pelayanan cepat • Produk premium</p>
     </div>
+  </div>
 </header>
 
 <nav class="main-nav">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="product.html" class="nav-link active">Produk</a>
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="product.html" class="nav-link active">Produk</a>
 </nav>
 
 <section class="section">
-    <h2 class="section-title">Produk Digital</h2>
-    <p class="section-sub">Pilih produk terbaik untuk kebutuhan streaming Anda</p>
+  <h2 class="section-title">Produk Digital</h2>
+  <p class="section-sub">Klik produk untuk melihat deskripsi dan lanjut ke checkout.</p>
 
-    <div class="product-grid">
+  <div class="product-grid">
 
-        <!-- Produk 1 -->
-        <div class="card">
-            <img src="assets/images/products/netflix.png" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Netflix Sharing (1 Profil • 1 Bulan)</h3>
-                <p class="card-note">Garansi penuh • Akses aman</p>
-
-                <div class="card-footer">
-                    <span class="price">Rp 25.000</span>
-                    <button class="btn-sm checkoutBtn"
-                        data-name="Netflix Sharing 1 Profil 1 Bulan"
-                        data-price="25000">Beli</button>
-                </div>
-            </div>
+    <!-- Produk 1 -->
+    <div class="card product-card" data-name="Netflix Sharing 1 Profil 1 Bulan" data-price="25000">
+      <img src="assets/images/products/netflix.png" class="card-img">
+      <div class="card-body">
+        <h3 class="card-title">Netflix Sharing (1 Profil • 1 Bulan)</h3>
+        <p class="card-note">Garansi penuh • Akses aman</p>
+        <div class="card-footer">
+          <span class="price">Rp 25.000</span>
+          <button class="btn-sm viewDetailBtn">Detail</button>
         </div>
-
-        <!-- Produk 2 -->
-        <div class="card">
-            <img src="assets/images/products/netflix1.png" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Netflix Premium (Full Garansi)</h3>
-                <p class="card-note">Kualitas UHD • Profil personal</p>
-
-                <div class="card-footer">
-                    <span class="price">Rp 190.000</span>
-                    <button class="btn-sm checkoutBtn"
-                        data-name="Netflix Premium"
-                        data-price="190000">Beli</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produk 3 -->
-        <div class="card">
-            <img src="assets/images/products/spotify.png" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Spotify Premium 1 Bulan</h3>
-                <p class="card-note">Akun aman • Tanpa iklan</p>
-
-                <div class="card-footer">
-                    <span class="price">Rp 15.000</span>
-                    <button class="btn-sm checkoutBtn"
-                        data-name="Spotify Premium 1 Bulan"
-                        data-price="15000">Beli</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produk 4 -->
-        <div class="card">
-            <img src="assets/images/products/yt.png" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">YouTube Premium</h3>
-                <p class="card-note">Tanpa iklan • Background play</p>
-
-                <div class="card-footer">
-                    <span class="price">Rp 30.000</span>
-                    <button class="btn-sm checkoutBtn"
-                        data-name="YouTube Premium"
-                        data-price="30000">Beli</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produk 5 -->
-        <div class="card">
-            <img src="assets/images/products/viu.png" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">VIU Premium 1 Bulan</h3>
-                <p class="card-note">Akses drama Asia lengkap</p>
-
-                <div class="card-footer">
-                    <span class="price">Rp 20.000</span>
-                    <button class="btn-sm checkoutBtn"
-                        data-name="VIU Premium 1 Bulan"
-                        data-price="20000">Beli</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produk 6 -->
-        <div class="card">
-            <img src="assets/images/products/disney.png" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Disney+ Hotstar 1 Bulan</h3>
-                <p class="card-note">Marvel • Disney • Pixar</p>
-
-                <div class="card-footer">
-                    <span class="price">Rp 35.000</span>
-                    <button class="btn-sm checkoutBtn"
-                        data-name="Disney+ Hotstar 1 Bulan"
-                        data-price="35000">Beli</button>
-                </div>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <!-- Produk 2 -->
+    <div class="card product-card" data-name="Netflix Premium" data-price="190000">
+      <img src="assets/images/products/netflix1.png" class="card-img">
+      <div class="card-body">
+        <h3 class="card-title">Netflix Premium (Full Garansi)</h3>
+        <p class="card-note">Kualitas UHD • Profil personal</p>
+        <div class="card-footer">
+          <span class="price">Rp 190.000</span>
+          <button class="btn-sm viewDetailBtn">Detail</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tambahkan produk lain sesuai kebutuhan -->
+
+  </div>
 </section>
 
-<div style="height: 140px;"></div>
+<!-- Popup Produk -->
+<div id="popup" class="popup" aria-hidden="true">
+  <div class="popup-box">
+    <button id="closeBtn" class="popup-close">&times;</button>
+    <div id="popupContent">
+      <h3 id="popupName"></h3>
+      <p id="popupDesc">Deskripsi produk akan muncul di sini...</p>
+      <label>
+        <input type="checkbox" id="agreeCheck"> Saya setuju dengan syarat dan ketentuan
+      </label>
+      <button id="checkoutBtn" class="btn-primary" disabled>Checkout</button>
+    </div>
+  </div>
+</div>
+
+<div style="height: 120px;"></div>
 
 <a class="fab-wa" href="https://wa.me/6285282788041" target="_blank">
-    <img src="assets/icons/wa.svg" width="28">
+  <img src="assets/icons/wa.svg" width="28">
 </a>
 
 <script src="assets/js/script.js"></script>
-
 <script>
-document.querySelectorAll(".checkoutBtn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        popupProduct(btn.dataset.name, btn.dataset.price);
-    });
-});
-</script>
+  // Detail Popup Produk
+  const viewBtns = document.querySelectorAll(".viewDetailBtn");
+  const popup = document.getElementById("popup");
+  const popupName = document.getElementById("popupName");
+  const popupDesc = document.getElementById("popupDesc");
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  const agreeCheck = document.getElementById("agreeCheck");
+  const closeBtn = document.getElementById("closeBtn");
 
+  viewBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".product-card");
+      popupName.innerText = card.dataset.name;
+      popupDesc.innerText = "Deskripsi lengkap " + card.dataset.name;
+      checkoutBtn.disabled = !agreeCheck.checked;
+      popup.style.display = "flex";
+      popup.setAttribute("aria-hidden", "false");
+    });
+  });
+
+  agreeCheck.addEventListener("change", () => {
+    checkoutBtn.disabled = !agreeCheck.checked;
+  });
+
+  checkoutBtn.addEventListener("click", () => {
+    localStorage.setItem("coName", popupName.innerText);
+    localStorage.setItem("coPrice", card.dataset.price);
+    window.location.href = "checkout.html";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+    popup.setAttribute("aria-hidden", "true");
+  });
+</script>
 </body>
 </html>
