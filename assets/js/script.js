@@ -1,52 +1,48 @@
-// =========================
-// MUNLOPMENT STORE JS
-// Professional & Modular
-// =========================
-
-(function () {
+(function() {
   "use strict";
 
   // =========================
   // Page Loader
   // =========================
-  function hideLoader() {
-    const loader = document.getElementById("page-loader");
-    if (!loader) return;
-    loader.classList.add("hidden");
-  }
-
+  const loader = document.getElementById("page-loader");
   window.addEventListener("load", () => {
-    setTimeout(hideLoader, 500); // loader fade-out
+    if(loader){
+      loader.classList.add("hidden");
+      setTimeout(() => loader.style.display="none",600);
+    }
+    // Hero fade-in
+    const hero = document.querySelector(".hero-content");
+    if(hero) hero.classList.add("show");
+    // Produk staggered
+    const cards = document.querySelectorAll(".product-card");
+    cards.forEach((card, idx) => {
+      setTimeout(() => card.classList.add("show"), idx * 150);
+    });
   });
 
   // =========================
-  // Set current year in footer
+  // Set Year
   // =========================
-  function setCurrentYear() {
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-  }
-  setCurrentYear();
+  const yearSpan = document.getElementById("year");
+  if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
   // =========================
-  // Smooth Scroll to Produk
+  // Smooth Scroll Hero to Produk
   // =========================
-  const scrollToProdukBtn = document.getElementById("scrollToProduk");
-  if (scrollToProdukBtn) {
-    scrollToProdukBtn.addEventListener("click", (e) => {
+  const scrollBtn = document.getElementById("scrollToProduk");
+  if(scrollBtn){
+    scrollBtn.addEventListener("click", e => {
       e.preventDefault();
-      const produkSection = document.getElementById("produk");
-      if (produkSection) {
-        produkSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      const produk = document.getElementById("produk");
+      if(produk) produk.scrollIntoView({behavior:"smooth"});
     });
   }
 
   // =========================
-  // Product Hover Animation
+  // Produk Hover Animation
   // =========================
-  const productCards = document.querySelectorAll(".product-card");
-  productCards.forEach(card => {
+  const cards = document.querySelectorAll(".product-card");
+  cards.forEach(card => {
     card.addEventListener("mouseenter", () => {
       card.style.transform = "translateY(-6px)";
       card.style.boxShadow = "0 12px 24px rgba(0,0,0,0.15)";
