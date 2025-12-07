@@ -1,126 +1,110 @@
-/* styles.css — letakkan di folder sama dengan index.html */
-:root{
-  --primary-1: #ff416c;
-  --primary-2: #ff4b2b;
-  --accent: #007bff;
-  --bg: #f3f4f6;
-  --card: #ffffff;
-  --muted:#777;
-  --shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
 body{
-  font-family: 'Poppins', sans-serif;
-  margin:0;
-  background:var(--bg);
-  color:#111;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5f5f5;
 }
 
-/* wrapper center mobile width */
-.app {
-  max-width:980px;
-  margin:24px auto;
-  padding:18px;
+/* HEADER */
+.header{
+    text-align:center;
+    padding:18px;
+    background:#111;
+    color:white;
+}
+.logo{
+    width:60px;
 }
 
-/* Header / nav */
-.header {
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-.logo {
-  width:64px;height:64px;border-radius:12px;object-fit:cover;
-  box-shadow: var(--shadow);
-}
-.brand {
-  display:flex;flex-direction:column;
-}
-.brand h1{margin:0;font-size:20px}
-.brand p{margin:0;color:var(--muted);font-size:13px}
-
-/* Nav simple */
-.nav {
-  margin-top:14px;
-  display:flex;
-  gap:8px;
-  align-items:center;
-  justify-content:flex-start;
+/* NAV */
+.nav{
+    background:#222;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:12px;
 }
 .nav a{
-  text-decoration:none;padding:8px 12px;border-radius:9px;color:#222;background:transparent;font-weight:600;
+    color:white;
+    text-decoration:none;
+    opacity:.6;
 }
-.nav a.active{background: linear-gradient(90deg,var(--primary-1),var(--primary-2)); color:#fff; box-shadow:0 6px 18px rgba(255,65,108,0.15);}
-
-/* Card list */
-.grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
-  gap:16px;
-  margin-top:18px;
-}
-.card{
-  background:var(--card);border-radius:12px;padding:12px;box-shadow:var(--shadow);overflow:hidden;
-}
-.card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
-.card h3{margin:10px 0 6px;font-size:16px}
-.price{font-weight:800;color:var(--primary-2)}
-.card p{margin:0;color:var(--muted);font-size:14px}
-
-/* Product detail */
-.detail {
-  display:flex;flex-direction:column;gap:14px;margin-top:18px;
-}
-.detail .hero{
-  display:flex;gap:16px;align-items:flex-start;
-}
-.detail .hero img{width:220px;height:220px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow)}
-.detail .info h2{margin:0}
-.info .rules{background:#fafafa;padding:10px;border-radius:8px;border:1px solid #eee;font-size:14px;color:var(--muted)}
-
-/* Checkout bar fixed on mobile */
-.checkout-bar {
-  position: fixed;
-  left: 0; right: 0; bottom: 12px;
-  display:flex;justify-content:center;pointer-events:none;
-}
-.checkout-bar .btn {
-  pointer-events:all;
-  width:92%;max-width:560px;
-  background: linear-gradient(90deg,var(--primary-1),var(--primary-2));
-  color:#fff;padding:14px;border-radius:12px;border:none;font-weight:700;
-  box-shadow:0 8px 28px rgba(255,65,108,0.18);
+.nav a.active,
+.nav a:hover{
+    opacity:1;
 }
 
-/* Popup modal */
-.modal {
-  position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:9999;
+/* BANNER */
+.banner img{
+    width:100%;
 }
-.modal.show{display:flex}
-.modal-box{
-  width:360px;background:#fff;padding:18px;border-radius:12px;box-shadow:var(--shadow);
+.banner{
+    position:relative;
 }
-.modal-box h3{margin-top:0}
-.qr-box{width:240px;height:240px;margin:8px auto;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#eee,#ddd);display:flex;align-items:center;justify-content:center}
-
-/* form in modal */
-.form-row{display:flex;flex-direction:column;gap:8px;margin-top:8px}
-.input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #eee}
-.small{font-size:13px;color:var(--muted)}
-
-/* floating wa */
-.fab-wa{
-  position:fixed;right:16px;bottom:96px;background:#25D366;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 8px 26px rgba(0,0,0,0.15);z-index:999;
+.banner-text{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
 }
 
-/* responsive */
-@media (max-width:880px){
-  .app{padding:12px}
-  .detail .hero{flex-direction:column;align-items:center}
-  .detail .hero img{width:100%;height:260px}
-  }
+/* PRODUCTS */
+.section{
+    padding:20px;
+}
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+.product-card{
+    background:white;
+    padding:12px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+.product-card img{
+    width:100%;
+}
+button{
+    margin-top:10px;
+    padding:10px;
+    background:#111;
+    border-radius:8px;
+    color:white;
+    border:none;
+}
+
+/* CHECKOUT */
+.checkout-box{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+}
+.qr-img{
+    width:100%;
+}
+.btn-wa{
+    margin-top:20px;
+    background:#25D366;
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    color:white;
+    font-size:17px;
+}
+
+/* WA FLOAT */
+.wa-button{
+    position:fixed;
+    bottom:15px;
+    right:15px;
+    background:#25D366;
+    padding:10px;
+    border-radius:50%;
+}
+.wa-button img{
+    width:34px;
+}
