@@ -196,7 +196,30 @@
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+@media(max-width: 420px){
+    h1 { font-size: 20px; }
+    h2 { font-size: 18px; }
+    h3 { font-size: 16px; }
+    p, li { font-size: 14px; }
+}
+    .qr-placeholder {
+    padding: 0;
+    }
+    body.popup-open {
+    overflow: hidden;
+    }
 
+    .price-tag {
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(135deg,#ff4b2b,#ff416c);
+    -webkit-background-clip: text;
+    color: transparent;
+    }
+    img:hover {
+    transform: scale(1.01);
+    transition: 0.3s ease;
+    }
 </style>
 
 </head>
@@ -395,6 +418,14 @@ function openPopup() {
 
     animatePopup();
     startQRGlow();
+}
+    function openPopup(){
+    document.body.classList.add("popup-open");
+    ...
+}
+function closePopup(){
+    document.body.classList.remove("popup-open");
+    ...
 }
 </script>
 
