@@ -256,3 +256,10 @@ body{
 
 /* accessibility focus */
 a:focus, button:focus{outline:3px solid rgba(0,123,255,0.12);outline-offset:3px}
+
+.page-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .4s ease, visibility .4s ease;
+}
