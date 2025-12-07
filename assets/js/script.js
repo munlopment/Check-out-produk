@@ -15,12 +15,12 @@ function loadCheckout(){
     document.getElementById("coName").innerText = name;
     document.getElementById("coPrice").innerText = "Rp " + price;
 
-    let qr = document.getElementById("qrImage");
+    let qr = document.getElementById("qrimage");
 
     if(name.includes("Netflix")){
-        qr.src = "assets/image/products/qr-netflix.png";
+        qr.src = "assets/images/qr-netflix.png";
     } else {
-        qr.src = "assets/image/products/qr-spotify.png";
+        qr.src = "assets/images/qr-netflix.png";
     }
 }
 
@@ -35,7 +35,7 @@ Harga: Rp ${price}
 Berikut bukti pembayaran saya.`;
 
     window.location.href =
-        "https://wa.me/62857XXXXXXX?text=" + encodeURIComponent(msg);
+        "https://wa.me/6285282788041?text=" + encodeURIComponent(msg);
 }
 
 (function(){
