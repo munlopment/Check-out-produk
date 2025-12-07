@@ -52,7 +52,27 @@
 <a class="fab-wa" href="https://wa.me/6285282788041" target="_blank">
     <img src="assets/icons/wa.svg" width="28" alt="WhatsApp">
 </a>
+<!-- POPUP DESKRIPSI -->
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <h3>Konfirmasi Checkout</h3>
 
+        <p><b id="pName"></b></p>
+        <p>Total: <b id="pPrice"></b></p>
+
+        <p class="desc">
+            Silakan baca deskripsi terlebih dahulu. Setelah setuju, centang kotak di bawah untuk melanjutkan proses checkout.
+        </p>
+
+        <label class="check">
+            <input type="checkbox" id="agree" onchange="toggleConfirm()">
+            Saya sudah membaca dan setuju.
+        </label>
+
+        <button id="confirmBtn" class="btn-sm" disabled onclick="goCheckout()">Lanjutkan</button>
+        <button class="btn-close" onclick="closePopup()">Tutup</button>
+    </div>
+</div>
 <script src="assets/js/script.js"></script>
 
 <script>
