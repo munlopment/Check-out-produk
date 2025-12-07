@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>munlopment store — Product</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Produk</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js" defer></script>
 </head>
 <body>
-  <div class="app">
-    <header class="header">
-      <img class="logo" src="images/logo.png" alt="logo">
-      <div class="brand">
-        <h1>munlopment store</h1>
-        <p>Detail Produk</p>
-      </div>
-    </header>
 
-    <nav class="nav" style="margin-top:12px">
-      <a href="index.html">Home</a>
-      <a href="index.html#produk">Produk</a>
-      <a href="#kontak">Kontak</a>
-    </nav>
+<header class="header">
+    <img src="assets/image/logo.png" class="logo">
+    <h1>Daftar Produk</h1>
+</header>
 
-    <main id="product-root"></main>
-  </div>
+<nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="product.html" class="active">Produk</a>
+    <a href="about.html">Tentang</a>
+</nav>
 
-  <!-- Checkout bar -->
-  <div class="checkout-bar">
-    <button class="btn" id="goto-checkout" style="background:linear-gradient(90deg,var(--primary-1),var(--primary-2));color:#fff" onclick="document.getElementById('buyBtn')?.click()">Beli Sekarang</button>
-  </div>
+<section class="section">
+    <h2>Pilih Produk</h2>
 
-  <!-- modal -->
-  <div id="modal" class="modal" onclick="if(event.target===this) closeModal();">
-    <div id="modal-box" class="modal-box"></div>
-  </div>
+    <div class="product-grid">
 
-  <script src="app.js"></script>
-  <script>
-    TEMPLATE.initProductPage();
-    TEMPLATE.addFloatingWA();
-  </script>
+        <div class="product-card">
+            <img src="assets/image/produk/netflix.png">
+            <h3>Netflix Premium</h3>
+            <button onclick="checkout('Netflix Premium', '19000')">Checkout</button>
+        </div>
+
+        <div class="product-card">
+            <img src="assets/image/produk/spotify.png">
+            <h3>Spotify Premium</h3>
+            <button onclick="checkout('Spotify Premium', '12000')">Checkout</button>
+        </div>
+
+    </div>
+</section>
+
 </body>
 </html>
