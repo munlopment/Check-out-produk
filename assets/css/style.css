@@ -141,3 +141,23 @@ body{
 .wa-float img{
     width:33px;
 }
+/* smooth popup closing */
+#popup.closing .popup-box {
+    transform: scale(0.85);
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+/* tombol glow */
+.checkout-btn:hover {
+    box-shadow: 0 0 12px rgba(255,65,108,0.8);
+}
+
+/* ripple improvement */
+button .ripple {
+    position: absolute;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleAnim 0.6s linear;
+}
