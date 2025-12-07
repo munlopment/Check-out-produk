@@ -494,3 +494,58 @@ body {
 #popupCheckout:hover:enabled {
   background: #e63b3f;
    }
+/* ====== CHECKOUT CARD ====== */
+.checkout-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.checkout-info h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.checkout-info p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.payment-method h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.payment-method label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#confirmPayment {
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#confirmPayment:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#confirmPayment:hover:enabled {
+  background: #e63b3f;
+   }
