@@ -54,3 +54,41 @@
   });
 
 })();
+document.addEventListener("DOMContentLoaded", () => {
+  // Loader
+  const loader = document.getElementById("page-loader");
+  setTimeout(() => loader.classList.add("hide"), 300);
+});
+
+// ====== POPUP FUNCTION ======
+const popup = document.getElementById('popup');
+const popupTitle = document.getElementById('popupTitle');
+const popupDesc = document.getElementById('popupDesc');
+const agreeTerms = document.getElementById('agreeTerms');
+const popupCheckout = document.getElementById('popupCheckout');
+
+function popupProduct(name, desc, price) {
+  popupTitle.innerText = name;
+  popupDesc.innerText = desc;
+  popup.setAttribute('aria-hidden','false');
+  popup.style.display = 'flex';
+  agreeTerms.checked = false;
+  popupCheckout.disabled = true;
+
+  // Reset event listener untuk checkbox
+  agreeTerms.onchange = () => {
+    popupCheckout.disabled = !agreeTerms.checked;
+  };
+
+  // Checkout
+  popupCheckout.onclick = () => {
+    localStorage.setItem('coName', name);
+    localStorage.setItem('coPrice', price);
+    window.location.href = 'checkout.html';
+  };
+
+  // Klik di luar popup untuk tutup
+  popup.onclick = (e) => {
+    if(e.target === popup) popup.style.display = 'none';
+  };
+}
