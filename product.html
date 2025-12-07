@@ -8,10 +8,11 @@
 </head>
 <body>
 
-<div class="page-loader" id="loader">
+<!-- Loader -->
+<div id="page-loader" class="page-loader">
   <div class="loader-box">
     <div class="spinner"></div>
-    <p>Memuat...</p>
+    <div class="loader-text">Memuat…</div>
   </div>
 </div>
 
@@ -19,7 +20,7 @@
   <div class="header-inner">
     <img src="assets/images/logo.png" class="logo" alt="Logo">
     <div>
-      <h1 class="brand-title">Produk</h1>
+      <h1 class="brand-title">Munlopment Store</h1>
       <p class="brand-sub">Pelayanan cepat • Produk premium</p>
     </div>
   </div>
@@ -30,100 +31,126 @@
   <a href="product.html" class="nav-link active">Produk</a>
 </nav>
 
-<section class="section">
-  <h2 class="section-title">Produk Digital</h2>
-  <p class="section-sub">Klik produk untuk melihat deskripsi dan lanjut ke checkout.</p>
+<main class="main" id="main">
+  <section class="section">
+    <h2 class="section-title">Produk Digital</h2>
+    <p class="section-sub">Klik produk untuk melihat deskripsi sebelum membeli.</p>
 
-  <div class="product-grid">
+    <div class="product-grid">
 
-    <!-- Produk 1 -->
-    <div class="card product-card" data-name="Netflix Sharing 1 Profil 1 Bulan" data-price="25000">
-      <img src="assets/images/products/netflix.png" class="card-img">
-      <div class="card-body">
-        <h3 class="card-title">Netflix Sharing (1 Profil • 1 Bulan)</h3>
-        <p class="card-note">Garansi penuh • Akses aman</p>
-        <div class="card-footer">
-          <span class="price">Rp 25.000</span>
-          <button class="btn-sm viewDetailBtn">Detail</button>
+      <!-- Produk 1 -->
+      <article class="card product-card" onclick="popupProduct('Netflix Sharing 1 Profil 1 Bulan','Garansi penuh • Akses aman',25000)">
+        <img class="card-img" src="assets/images/products/netflix.png" alt="Netflix Premium">
+        <div class="card-body">
+          <h3 class="card-title">Netflix Sharing (1 Profil • 1 Bulan)</h3>
+          <div class="price">Rp 25.000</div>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <!-- Produk 2 -->
-    <div class="card product-card" data-name="Netflix Premium" data-price="190000">
-      <img src="assets/images/products/netflix1.png" class="card-img">
-      <div class="card-body">
-        <h3 class="card-title">Netflix Premium (Full Garansi)</h3>
-        <p class="card-note">Kualitas UHD • Profil personal</p>
-        <div class="card-footer">
-          <span class="price">Rp 190.000</span>
-          <button class="btn-sm viewDetailBtn">Detail</button>
+      <!-- Produk 2 -->
+      <article class="card product-card" onclick="popupProduct('Netflix Premium','Kualitas UHD • Profil personal',190000)">
+        <img class="card-img" src="assets/images/products/netflix1.png" alt="Netflix Premium Account">
+        <div class="card-body">
+          <h3 class="card-title">Netflix Premium (Full Garansi)</h3>
+          <div class="price">Rp 190.000</div>
         </div>
-      </div>
+      </article>
+
+      <!-- Produk 3 -->
+      <article class="card product-card" onclick="popupProduct('Spotify Premium 1 Bulan','Akun aman • Tanpa iklan',15000)">
+        <img class="card-img" src="assets/images/products/spotify.png" alt="Spotify Premium">
+        <div class="card-body">
+          <h3 class="card-title">Spotify Premium 1 Bulan</h3>
+          <div class="price">Rp 15.000</div>
+        </div>
+      </article>
+
+      <!-- Produk 4 -->
+      <article class="card product-card" onclick="popupProduct('YouTube Premium','Tanpa iklan • Background play',30000)">
+        <img class="card-img" src="assets/images/products/yt.png" alt="YouTube Premium">
+        <div class="card-body">
+          <h3 class="card-title">YouTube Premium</h3>
+          <div class="price">Rp 30.000</div>
+        </div>
+      </article>
+
+      <!-- Produk 5 -->
+      <article class="card product-card" onclick="popupProduct('VIU Premium 1 Bulan','Akses drama Asia lengkap',20000)">
+        <img class="card-img" src="assets/images/products/viu.png" alt="VIU Premium">
+        <div class="card-body">
+          <h3 class="card-title">VIU Premium 1 Bulan</h3>
+          <div class="price">Rp 20.000</div>
+        </div>
+      </article>
+
+      <!-- Produk 6 -->
+      <article class="card product-card" onclick="popupProduct('Disney+ Hotstar 1 Bulan','Marvel • Disney • Pixar',35000)">
+        <img class="card-img" src="assets/images/products/disney.png" alt="Disney+ Hotstar">
+        <div class="card-body">
+          <h3 class="card-title">Disney+ Hotstar 1 Bulan</h3>
+          <div class="price">Rp 35.000</div>
+        </div>
+      </article>
+
     </div>
+  </section>
+</main>
 
-    <!-- Tambahkan produk lain sesuai kebutuhan -->
-
-  </div>
-</section>
-
-<!-- Popup Produk -->
+<!-- POPUP PRODUCT -->
 <div id="popup" class="popup" aria-hidden="true">
   <div class="popup-box">
-    <button id="closeBtn" class="popup-close">&times;</button>
-    <div id="popupContent">
-      <h3 id="popupName"></h3>
-      <p id="popupDesc">Deskripsi produk akan muncul di sini...</p>
-      <label>
-        <input type="checkbox" id="agreeCheck"> Saya setuju dengan syarat dan ketentuan
-      </label>
-      <button id="checkoutBtn" class="btn-primary" disabled>Checkout</button>
-    </div>
+    <h3 id="popupTitle">Judul Produk</h3>
+    <p id="popupDesc">Deskripsi produk akan muncul di sini.</p>
+    <label>
+      <input type="checkbox" id="agreeTerms">
+      Saya sudah membaca dan memahami deskripsi produk
+    </label>
+    <button class="btn btn-primary" id="popupCheckout" disabled>Lanjut ke Checkout</button>
   </div>
 </div>
 
-<div style="height: 120px;"></div>
-
+<!-- Floating WhatsApp -->
 <a class="fab-wa" href="https://wa.me/6285282788041" target="_blank">
-  <img src="assets/icons/wa.svg" width="28">
+  <img src="assets/icons/wa.svg" width="28" alt="WA">
 </a>
 
 <script src="assets/js/script.js"></script>
 <script>
-  // Detail Popup Produk
-  const viewBtns = document.querySelectorAll(".viewDetailBtn");
-  const popup = document.getElementById("popup");
-  const popupName = document.getElementById("popupName");
-  const popupDesc = document.getElementById("popupDesc");
-  const checkoutBtn = document.getElementById("checkoutBtn");
-  const agreeCheck = document.getElementById("agreeCheck");
-  const closeBtn = document.getElementById("closeBtn");
+  document.addEventListener("DOMContentLoaded", () => {
+    // Loader
+    const loader = document.getElementById("page-loader");
+    setTimeout(() => loader.classList.add("hide"), 300);
+  });
 
-  viewBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const card = btn.closest(".product-card");
-      popupName.innerText = card.dataset.name;
-      popupDesc.innerText = "Deskripsi lengkap " + card.dataset.name;
-      checkoutBtn.disabled = !agreeCheck.checked;
-      popup.style.display = "flex";
-      popup.setAttribute("aria-hidden", "false");
+  // ===== POPUP FUNCTION =====
+  const popup = document.getElementById('popup');
+  const popupTitle = document.getElementById('popupTitle');
+  const popupDesc = document.getElementById('popupDesc');
+  const agreeTerms = document.getElementById('agreeTerms');
+  const popupCheckout = document.getElementById('popupCheckout');
+
+  function popupProduct(name, desc, price) {
+    popupTitle.innerText = name;
+    popupDesc.innerText = desc;
+    popup.setAttribute('aria-hidden','false');
+    popup.style.display = 'flex';
+    agreeTerms.checked = false;
+    popupCheckout.disabled = true;
+
+    agreeTerms.addEventListener('change', () => {
+      popupCheckout.disabled = !agreeTerms.checked;
     });
-  });
 
-  agreeCheck.addEventListener("change", () => {
-    checkoutBtn.disabled = !agreeCheck.checked;
-  });
+    popupCheckout.onclick = () => {
+      localStorage.setItem('coName', name);
+      localStorage.setItem('coPrice', price);
+      window.location.href = 'checkout.html';
+    };
 
-  checkoutBtn.addEventListener("click", () => {
-    localStorage.setItem("coName", popupName.innerText);
-    localStorage.setItem("coPrice", card.dataset.price);
-    window.location.href = "checkout.html";
-  });
-
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-    popup.setAttribute("aria-hidden", "true");
-  });
+    popup.onclick = (e) => {
+      if(e.target === popup) popup.style.display = 'none';
+    };
+  }
 </script>
 </body>
-</html>
+            </html>
