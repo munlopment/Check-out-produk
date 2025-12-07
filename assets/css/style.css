@@ -588,23 +588,39 @@ body {
 .logo,
 .card-img,
 .fab-wa img {
-  border-radius: 50%;       /* Membuat bulat */
+    /* Membuat bulat */
   background: transparent;  /* Pastikan tidak ada background */
   object-fit: cover;        /* Agar gambar tetap proporsional */
   display: block;
 }
 
-/* Opsional: tambahkan shadow supaya lebih elegan */
+/* Logo dan profil bulat */
 .logo {
-  width: 80px;             /* sesuaikan ukuran */
-  height: 80px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: transparent;
+    display: block;
 }
 
+/* Floating WA button bulat */
+.fab-wa img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    background: transparent;
+}
+
+/* Gambar produk tetap kotak */
 .card-img {
-  width: 100px;            /* bisa disesuaikan */
-  height: 100px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px; /* atau 0 jika ingin benar-benar kotak */
+    object-fit: cover;
+    width: 100%;
+    height: 140px;
 }
 
 /* Floating WA button */
