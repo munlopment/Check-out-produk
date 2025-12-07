@@ -45,9 +45,11 @@
 
       <div class="payment-method">
         <h4>Pilih Metode Pembayaran</h4>
-        <label><input type="radio" name="payMethod" value="Dana" checked> Dana</label>
+        <label><input type="radio" name="payMethod" value="Dana"> Dana</label>
         <label><input type="radio" name="payMethod" value="QR"> QR Scan</label>
       </div>
+
+      <div id="paymentDetail" class="payment-detail"></div>
 
       <button id="confirmPayment" class="btn btn-primary" disabled>Konfirmasi Pembayaran</button>
     </div>
@@ -73,22 +75,36 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('coName').innerText = coName;
   document.getElementById('coPrice').innerText = 'Rp ' + coPrice.toLocaleString('id-ID');
 
-  // Aktifkan tombol setelah memilih metode pembayaran
+  // Pilihan metode pembayaran
   const radios = document.querySelectorAll('input[name="payMethod"]');
   const confirmBtn = document.getElementById('confirmPayment');
-  radios.forEach(r => r.addEventListener('change', () => confirmBtn.disabled = false));
+  const paymentDetail = document.getElementById('paymentDetail');
 
-  // Tombol konfirmasi
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      confirmBtn.disabled = false;
+      if(radio.value === 'Dana'){
+        paymentDetail.innerHTML = `
+          <p>Silakan transfer ke nomor Dana berikut:</p>
+          <div class="payment-box">0812-3456-7890</div>
+        `;
+      } else if(radio.value === 'QR'){
+        paymentDetail.innerHTML = `
+          <p>Scan QR berikut untuk membayar:</p>
+          <img src="assets/images/qr-sample.png" alt="QR Code" class="qr-code">
+        `;
+      }
+    });
+  });
+
+  // Konfirmasi pembayaran
   confirmBtn.addEventListener('click', () => {
     const selectedMethod = document.querySelector('input[name="payMethod"]:checked').value;
     let message = `Halo admin, saya sudah checkout produk: ${coName} seharga Rp ${coPrice}. Metode pembayaran: ${selectedMethod}. Berikut bukti pembayaran saya.`;
-
-    // Buka WhatsApp
     const waURL = `https://wa.me/6285282788041?text=${encodeURIComponent(message)}`;
     window.open(waURL, '_blank');
   });
 });
 </script>
-
 </body>
 </html>
