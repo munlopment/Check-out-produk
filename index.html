@@ -25,10 +25,10 @@
     </div>
   </header>
 
+  <!-- NAV: HAPUS ABOUT -->
   <nav class="main-nav" role="navigation" aria-label="Utama">
     <a href="index.html" class="nav-link active">Home</a>
     <a href="product.html" class="nav-link">Produk</a>
-    <a href="about.html" class="nav-link">Tentang</a>
   </nav>
 
   <main class="main" id="main">
@@ -46,10 +46,11 @@
 
     <section class="section" id="produk">
       <h2 class="section-title">Produk Unggulan</h2>
-      <p class="section-sub">Klik kartu untuk melihat detail atau checkout.</p>
+      <p class="section-sub">Klik kartu untuk melihat detail produk.</p>
 
       <div class="product-grid" id="productGrid">
-        <!-- product cards di fill oleh HTML statis (bisa diganti JS jika mau dynamic) -->
+
+        <!-- Kartu produk 1 -->
         <article class="card product-card" data-id="netflix-1">
           <img class="card-img" src="assets/images/products/netflix.png" alt="Netflix Premium" loading="lazy">
           <div class="card-body">
@@ -57,11 +58,12 @@
             <p class="card-note">Streaming 4K • Semua perangkat</p>
             <div class="card-footer">
               <div class="price">Rp 25.000</div>
-              <a class="btn btn-sm" href="product.html?id=netflix-1">Checkout</a>
+              <a class="btn btn-sm" href="product.html?id=netflix-1">Lihat Detail</a>
             </div>
           </div>
         </article>
 
+        <!-- Kartu produk 2 -->
         <article class="card product-card" data-id="netflix-2">
           <img class="card-img" src="assets/images/products/netflix1.png" alt="Netflix Premium Account" loading="lazy">
           <div class="card-body">
@@ -69,24 +71,14 @@
             <p class="card-note">Akun penuh • Garansi</p>
             <div class="card-footer">
               <div class="price">Rp 190.000</div>
-              <a class="btn btn-sm" href="product.html?id=netflix-2">Checkout</a>
+              <a class="btn btn-sm" href="product.html?id=netflix-2">Lihat Detail</a>
             </div>
           </div>
         </article>
+
       </div>
     </section>
 
-    <section class="section about" id="tentang">
-      <h2 class="section-title">Tentang Kami</h2>
-      <div class="card">
-        <p>Munlopment Store — penyedia layanan digital premium (Netflix, Spotify, dan lainnya). Fokus pada pelayanan cepat, bukti transaksi jelas, dan dukungan 24/7 via WhatsApp.</p>
-        <ul class="about-list">
-          <li>Harga transparan</li>
-          <li>Pengiriman cepat (1–5 menit)</li>
-          <li>Garansi jika ada masalah</li>
-        </ul>
-      </div>
-    </section>
   </main>
 
   <!-- Floating WhatsApp -->
@@ -97,7 +89,6 @@
     </svg>
   </a>
 
-  <!-- page footer minimal (optional) -->
   <footer class="site-footer">
     <div class="footer-inner">
       <small>© <span id="year"></span> Munlopment Store — All rights reserved.</small>
