@@ -1,39 +1,94 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout — Munlopment Store</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Munlopment Store</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body onload="loadCheckout()">
+<body>
+
+<!-- Loader -->
+<div id="page-loader" class="page-loader">
+  <div class="loader-box">
+    <div class="spinner"></div>
+    <div class="loader-text">Memuat…</div>
+  </div>
+</div>
 
 <header class="site-header">
-    <div class="header-inner">
-        <img src="assets/images/logo.png" class="logo">
-        <div>
-            <h1 class="brand-title">Checkout</h1>
-        </div>
+  <div class="header-inner">
+    <img src="assets/images/logo.png" class="logo" alt="Logo">
+    <div>
+      <h1 class="brand-title">Munlopment Store</h1>
+      <p class="brand-sub">Checkout Produk Digital</p>
     </div>
+  </div>
 </header>
 
 <nav class="main-nav">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="product.html" class="nav-link">Produk</a>
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="product.html" class="nav-link">Produk</a>
+  <a href="checkout.html" class="nav-link active">Checkout</a>
 </nav>
 
-<section class="section">
-    <div class="checkout-box">
-        <h2 id="coName"></h2>
-        <p class="co-price">Total: <b id="coPrice"></b></p>
+<main class="main" id="main">
+  <section class="section">
+    <h2 class="section-title">Checkout Produk</h2>
+    <p class="section-sub">Pastikan detail produk sudah benar sebelum membayar.</p>
 
-        <h3>Scan QR Pembayaran</h3>
-        <img id="qrimage" class="qr-img" src="assets/images/qr.png">
+    <div class="checkout-card">
+      <div class="checkout-info">
+        <h3 id="coName">Nama Produk</h3>
+        <p>Harga: <span id="coPrice">Rp 0</span></p>
+      </div>
 
-        <button onclick="sendWA()" class="btn-wa">Kirim Bukti ke WhatsApp</button>
+      <div class="payment-method">
+        <h4>Pilih Metode Pembayaran</h4>
+        <label><input type="radio" name="payMethod" value="Dana" checked> Dana</label>
+        <label><input type="radio" name="payMethod" value="QR"> QR Scan</label>
+      </div>
+
+      <button id="confirmPayment" class="btn btn-primary" disabled>Konfirmasi Pembayaran</button>
     </div>
-</section>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <small>© <span id="year"></span> Munlopment Store — All rights reserved.</small>
+  </div>
+</footer>
 
 <script src="assets/js/script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Loader
+  const loader = document.getElementById("page-loader");
+  setTimeout(() => loader.classList.add("hide"), 300);
+
+  // Ambil data dari localStorage
+  const coName = localStorage.getItem('coName') || 'Produk Digital';
+  const coPrice = localStorage.getItem('coPrice') || 0;
+  document.getElementById('coName').innerText = coName;
+  document.getElementById('coPrice').innerText = 'Rp ' + coPrice.toLocaleString('id-ID');
+
+  // Aktifkan tombol setelah memilih metode pembayaran
+  const radios = document.querySelectorAll('input[name="payMethod"]');
+  const confirmBtn = document.getElementById('confirmPayment');
+  radios.forEach(r => r.addEventListener('change', () => confirmBtn.disabled = false));
+
+  // Tombol konfirmasi
+  confirmBtn.addEventListener('click', () => {
+    const selectedMethod = document.querySelector('input[name="payMethod"]:checked').value;
+    let message = `Halo admin, saya sudah checkout produk: ${coName} seharga Rp ${coPrice}. Metode pembayaran: ${selectedMethod}. Berikut bukti pembayaran saya.`;
+
+    // Buka WhatsApp
+    const waURL = `https://wa.me/6285282788041?text=${encodeURIComponent(message)}`;
+    window.open(waURL, '_blank');
+  });
+});
+</script>
+
 </body>
-    </html>
+</html>
