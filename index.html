@@ -1,496 +1,60 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>munlopment store - Netflix Premium</title>
-
-<style>
-    * {
-    box-sizing: border-box;
-    max-width: 100%;
-    overflow-x: hidden;
-    }
-    body {
-        font-family: 'Poppins', sans-serif;
-        background: #f3f4f6;
-        margin: 0;
-        padding-bottom: 90px;
-        overflow-x: hidden !important;
-    }
-
-    /* disable scroll saat popup terbuka */
-    body.popup-open {
-        overflow: hidden;
-    }
-
-    .container {
-        max-width: 480px;
-        background: #fff;
-        margin: auto;
-        padding: 20px;
-        border-radius: 14px;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-        animation: fadeIn 0.4s ease;
-    }
-
-    @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(10px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-
-    .header { text-align: center; }
-    .logo {
-        width: 115px;
-        height: 115px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    }
-    .header h1 {
-        margin: 10px 0 0;
-        font-size: 24px;
-        font-weight: 700;
-    }
-    .header p {
-        color: #777;
-        font-size: 14px;
-    }
-
-    .about-box, .guarantee-box {
-        background: #fafafa;
-        padding: 15px;
-        border-radius: 12px;
-        margin-top: 15px;
-        border: 1px solid #eee;
-    }
-
-    .rating-box {
-        margin-top: 10px;
-        font-size: 16px;
-        color: #ff9d00;
-        font-weight: bold;
-    }
-
-    /* Checkout Bar PREMIUM */
-    .checkout-bar {
-        position: fixed;
-        bottom: 0; left: 0;
-        width: 100%;
-        backdrop-filter: blur(10px);
-        background: rgba(255,255,255,0.9);
-        padding: 12px;
-        display: flex;
-        justify-content: center;
-        box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
-    }
-
-    .checkout-btn {
-        width: 92%;
-        background: linear-gradient(135deg, #ff4b2b, #ff416c);
-        padding: 15px;
-        border: none;
-        border-radius: 12px;
-        color: white;
-        font-size: 19px;
-        cursor: pointer;
-        font-weight: bold;
-        box-shadow: 0 4px 12px rgba(255,65,108,0.4);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .checkout-btn:hover {
-        opacity: 0.9;
-    }
-
-    /* POPUP PREMIUM STYLE */
-    #popup {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.55);
-        backdrop-filter: blur(5px);
-        justify-content: center;
-        align-items: center;
-        animation: popupFade 0.3s ease;
-        z-index: 9999;
-    }
-
-    @keyframes popupFade {
-        from {opacity: 0;} to {opacity: 1;}
-    }
-
-    .popup-box {
-        background: white;
-        padding: 22px;
-        border-radius: 14px;
-        width: 330px;
-        text-align: center;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-        position: relative;
-        animation: scaleIn 0.25s ease;
-        overflow: hidden;
-    }
-
-    @keyframes scaleIn {
-        from {transform: scale(0.8);}
-        to {transform: scale(1);}
-    }
-
-    .close-x {
-        position: absolute;
-        top: 8px;
-        right: 12px;
-        font-size: 24px;
-        font-weight: bold;
-        cursor: pointer;
-        color: #444;
-    }
-
-    .close-x:hover {
-        color: #ff3d3d;
-    }
-
-    .qr-placeholder {
-        width: 260px;
-        height: 260px;
-        background: linear-gradient(135deg, #eee, #ccc);
-        border-radius: 14px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 22px;
-        font-weight: bold;
-        color: #555;
-        border: 2px dashed #aaa;
-        overflow: hidden;
-    }
-
-    .process-btn {
-        margin-top: 15px;
-        padding: 12px;
-        width: 100%;
-        background: #007bff;
-        border: none;
-        color: white;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 17px;
-        transition: 0.2s;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .process-btn:hover {
-        background: #005ec4;
-    }
-
-    /* Ripple effect */
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        transform: scale(0);
-        background: rgba(255,255,255,0.45);
-        animation: rippleAnim 0.6s linear;
-        pointer-events: none;
-    }
-    @keyframes rippleAnim {
-        to { transform: scale(3); opacity: 0; }
-    }
-
-    /* Premium Loading Spinner */
-    .spinner {
-        width: 28px;
-        height: 28px;
-        border: 4px solid #ddd;
-        border-top-color: #007bff;
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-        margin: auto;
-        margin-bottom: 6px;
-    }
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-
-    /* small responsive tweaks */
-    @media (max-width: 420px) {
-        .container { padding: 16px; border-radius: 12px; }
-        .logo { width: 95px; height: 95px; }
-        .qr-placeholder { width: 220px; height: 220px; }
-    }
-</style>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>munlopment store — Home</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="container">
-
+  <div class="app">
     <header class="header">
-        <img src="logo.png" class="logo" alt="logo">
+      <img class="logo" src="images/logo.png" alt="logo">
+      <div class="brand">
         <h1>munlopment store</h1>
         <p>Premium Digital Services • Fast & Trusted</p>
+      </div>
     </header>
 
-    <div class="about-box">
-        <h3>Tentang Toko</h3>
-        <p>munlopment store adalah penyedia layanan digital terpercaya sejak 2024. Melayani ribuan pelanggan dengan respon cepat dan pelayanan premium.</p>
-        <div class="rating-box">⭐⭐⭐⭐⭐ 4.9/5 • 1.200+ pelanggan</div>
-    </div>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="index.html#produk">Produk</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
 
-    <h2>Netflix Premium 1 Bulan</h2>
-    <img src="Foto produk.png" alt="produk" style="width:100%; border-radius:14px; display:block;">
+    <section style="margin-top:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Produk Unggulan</h2>
+        <div class="small">Siap kirim via WA</div>
+      </div>
 
-    <div class="guarantee-box">
-        <h3>Garansi & Keamanan</h3>
-        <ul>
-            <li>✔ Pengiriman cepat max 5 menit</li>
-            <li>✔ Bantuan login full support</li>
-            <li>✔ Pembayaran aman via QRIS/DANA</li>
-        </ul>
-    </div>
+      <div id="product-list" class="grid"></div>
+    </section>
 
-    <div style="line-height: 1.6;">
-        <h2 style="text-align:center;">Deskripsi Produk</h2>
-        <h3 style="text-align:center;">NETFLIX PREMIUM SHARING – 1 BULAN</h3>
+    <section id="kontak" style="margin-top:26px">
+      <div class="card">
+        <h3>Profil Toko</h3>
+        <p>munlopment store — penyedia layanan digital terpercaya sejak 2024. Respon cepat, garansi layanan, dan dukungan penuh saat login.</p>
+        <div style="margin-top:8px"><strong>Admin:</strong> +62 852-8278-8041</div>
+        <div class="small" style="margin-top:6px">Klik produk untuk melihat detail & checkout.</div>
+      </div>
+    </section>
+  </div>
 
-        <p><strong>Baca deskripsi sebelum membeli.</strong></p>
+  <!-- Checkout bar (visible on mobile for quick checkout) -->
+  <div class="checkout-bar">
+    <button class="btn" onclick="location.href='index.html#produk'">Lihat Produk</button>
+  </div>
 
-        <h3>Keuntungan:</h3>
-        <ul>
-            <li>Streaming premium</li>
-            <li>Support semua perangkat</li>
-            <li>Kualitas 4K UHD</li>
-            <li>Legal Indonesia</li>
-        </ul>
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="if(event.target===this) closeModal();">
+    <div id="modal-box" class="modal-box"></div>
+  </div>
 
-        <h3>Aturan:</h3>
-        <ol>
-            <li>Dilarang reset password</li>
-            <li>Dilarang login–logout berulang</li>
-            <li>Hanya 1 perangkat</li>
-            <li>Dilarang membagikan akun</li>
-        </ol>
-    </div>
-</div>
-
-<!-- CHECKOUT MELAYANG PREMIUM -->
-<div class="checkout-bar">
-    <!-- tetap gunakan onclick untuk membuka popup, tapi logika internal ada di JS -->
-    <button class="checkout-btn" id="checkoutBtn">Checkout • Rp 25.000</button>
-</div>
-
-<!-- POPUP -->
-<div id="popup" role="dialog" aria-hidden="true">
-
-    <!-- STEP 1 -->
-    <div class="popup-box" id="step1">
-        <div class="close-x" id="closeBtn">×</div>
-
-        <h3>Scan QR Pembayaran</h3>
-        <p><b>Rp 25.000</b></p>
-        <div class="qr-placeholder" id="qrBox">
-            <img src="qr-netflix.png" alt="qr" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
-        </div>
-
-        <button class="process-btn" id="processBtn">Lanjutkan</button>
-    </div>
-
-    <!-- STEP 2 -->
-    <div class="popup-box" id="step2" style="display:none;">
-        <div class="close-x" id="closeBtn2">×</div>
-
-        <h3>Menunggu Konfirmasi</h3>
-        <p>Silakan kirim bukti pembayaran ke admin:</p>
-
-        <a href="https://wa.me/6285282788041?text=Halo%20kak,%20saya%20sudah%20membayar.%20Berikut%20buktinya:"
-           style="display:block; background:#25D366; padding:14px; border-radius:10px; color:white; font-size:18px; margin-top:15px; text-decoration:none;">
-            Kirim Bukti via WhatsApp
-        </a>
-    </div>
-
-</div>
-
-<script>
-(function(){
-    // Elemen penting
-    const body = document.body;
-    const popup = document.getElementById('popup');
-    const step1 = document.getElementById('step1');
-    const step2 = document.getElementById('step2');
-    const checkoutBtn = document.getElementById('checkoutBtn');
-    const processBtn = document.getElementById('processBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const closeBtn2 = document.getElementById('closeBtn2');
-    const qrBox = document.getElementById('qrBox');
-
-    // State untuk mencegah duplikat loading
-    let loadingAdded = false;
-    let qrGlowAnimation = null;
-
-    // Buka popup (satu fungsi saja)
-    function openPopup() {
-        popup.style.display = 'flex';
-        step1.style.display = 'block';
-        step2.style.display = 'none';
-        body.classList.add('popup-open');
-        popup.setAttribute('aria-hidden', 'false');
-
-        animatePopup(step1);
-        startQRGlow();
-    }
-
-    // Tutup popup
-    function closePopup() {
-        popup.style.display = 'none';
-        body.classList.remove('popup-open');
-        popup.setAttribute('aria-hidden', 'true');
-        stopQRGlow();
-        // reset step dan loading
-        step1.style.display = 'block';
-        step2.style.display = 'none';
-        removeLoadingAnim();
-        loadingAdded = false;
-    }
-
-    // pindah ke step2
-    function showStep2() {
-        step1.style.display = 'none';
-        step2.style.display = 'block';
-        // hentikan glow ketika di step2
-        stopQRGlow();
-    }
-
-    // Animasi masuk popup untuk element yang terlihat
-    function animatePopup(box) {
-        if (!box) return;
-        box.style.transform = 'scale(0.92)';
-        box.style.opacity = '0';
-        setTimeout(() => {
-            box.style.transition = '0.25s ease';
-            box.style.transform = 'scale(1)';
-            box.style.opacity = '1';
-        }, 20);
-    }
-
-    // Soft shake effect
-    function softShake() {
-        const box = document.querySelector('.popup-box');
-        if (!box) return;
-        box.animate([
-            { transform: "translateX(0)" },
-            { transform: "translateX(-4px)" },
-            { transform: "translateX(4px)" },
-            { transform: "translateX(0)" }
-        ], {
-            duration: 220,
-            easing: "ease-in-out"
-        });
-    }
-
-    // QR glow (gunakan Web Animations API)
-    function startQRGlow() {
-        if (!qrBox) return;
-        // jika animasi sudah ada, jangan buat ulang
-        if (qrGlowAnimation) return;
-        qrGlowAnimation = qrBox.animate(
-            [
-                { boxShadow: "0 0 0px rgba(0,150,255,0.0)" },
-                { boxShadow: "0 0 18px rgba(0,150,255,0.4)" },
-                { boxShadow: "0 0 0px rgba(0,150,255,0.0)" }
-            ],
-            {
-                duration: 3000,
-                iterations: Infinity,
-                easing: "ease-in-out"
-            }
-        );
-    }
-
-    function stopQRGlow() {
-        if (qrGlowAnimation) {
-            qrGlowAnimation.cancel();
-            qrGlowAnimation = null;
-            if (qrBox) qrBox.style.boxShadow = '';
-        }
-    }
-
-    // Tambah loading anim sekali dan pindah ke next step
-    function showLoadingThenNext() {
-        if (loadingAdded) return; // cegah penambahan berkali-kali
-        const loadingHtml = document.createElement('div');
-        loadingHtml.id = 'loadingAnim';
-        loadingHtml.style = 'margin-top:15px; font-size:16px; text-align:center;';
-        loadingHtml.innerHTML = `<div class="spinner"></div><div>Memverifikasi pembayaran...</div>`;
-        step1.appendChild(loadingHtml);
-        loadingAdded = true;
-
-        setTimeout(() => {
-            showStep2();
-        }, 1700);
-    }
-
-    function removeLoadingAnim(){
-        const loading = document.getElementById('loadingAnim');
-        if (loading) loading.remove();
-    }
-
-    // Event: tombol checkout buka popup
-    checkoutBtn.addEventListener('click', () => {
-        openPopup();
-    });
-
-    // Event: tombol proses (Lanjutkan)
-    processBtn.addEventListener('click', (e) => {
-        softShake();
-        showLoadingThenNext();
-        createRipple(e, processBtn);
-    });
-
-    // Event: close buttons
-    closeBtn.addEventListener('click', () => closePopup());
-    closeBtn2.addEventListener('click', () => closePopup());
-
-    // Klik di luar popup-box -> close
-    popup.addEventListener('click', (e) => {
-        if (e.target === popup) closePopup();
-    });
-
-    // Ripple effect (pada tombol utama dan proses)
-    function createRipple(e, el){
-        const circle = document.createElement('span');
-        circle.classList.add('ripple');
-        el.appendChild(circle);
-
-        const d = Math.max(el.clientWidth, el.clientHeight);
-        circle.style.width = circle.style.height = d + 'px';
-
-        // hitung posisi relatif tombol
-        const rect = el.getBoundingClientRect();
-        const left = e.clientX - rect.left - d/2;
-        const top = e.clientY - rect.top - d/2;
-        circle.style.left = left + 'px';
-        circle.style.top = top + 'px';
-
-        // hapus setelah anim
-        setTimeout(() => circle.remove(), 600);
-    }
-
-    // juga tambahkan ripple untuk tombol checkout saat diklik (tampilan lebih halus)
-    checkoutBtn.addEventListener('click', (e) => createRipple(e, checkoutBtn));
-
-    // Pastikan ketika user menekan tombol "Enter" pada popup tidak men-submit form apa pun
-    window.addEventListener('keydown', function(e){
-        if (e.key === 'Escape' && popup.style.display === 'flex') {
-            closePopup();
-        }
-    });
-
-})();
-</script>
-
+  <script src="app.js"></script>
+  <script>
+    TEMPLATE.initIndex();
+    TEMPLATE.addFloatingWA();
+  </script>
 </body>
 </html>
