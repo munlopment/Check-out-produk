@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
+    <title>Checkout — Munlopment Store</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/script.js" defer></script>
 </head>
+
 <body onload="loadCheckout()">
 
 <header class="header">
@@ -21,16 +21,25 @@
 </nav>
 
 <section class="section">
+
     <div class="checkout-box">
+
         <h2 id="coName"></h2>
-        <p>Total: <b id="coPrice"></b></p>
+        <p class="co-price">Total: <b id="coPrice"></b></p>
 
         <h3>Scan QR Pembayaran</h3>
-        <img id="qrImage" class="qr-img">
 
-        <button onclick="sendWA()" class="btn-wa">Kirim Bukti ke WhatsApp</button>
+        <img id="qrImage" class="qr-img" alt="QR Pembayaran">
+
+        <button onclick="sendWA()" class="btn-wa">
+            Kirim Bukti ke WhatsApp
+        </button>
+
     </div>
+
 </section>
+
+<script src="assets/js/script.js"></script>
 
 </body>
 </html>
