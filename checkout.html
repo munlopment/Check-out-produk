@@ -9,37 +9,34 @@
 
 <body onload="loadCheckout()">
 
-<header class="header">
-    <img src="assets/images/logo.png" class="logo">
-    <h1>Checkout</h1>
+<header class="site-header">
+    <div class="header-inner">
+        <img src="assets/images/logo.png" class="logo">
+        <div>
+            <h1 class="brand-title">Checkout</h1>
+        </div>
+    </div>
 </header>
 
-<nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="product.html">Produk</a>
-    <a href="about.html">Tentang</a>
+<nav class="main-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="product.html" class="nav-link">Produk</a>
 </nav>
 
 <section class="section">
-
     <div class="checkout-box">
-
         <h2 id="coName"></h2>
         <p class="co-price">Total: <b id="coPrice"></b></p>
 
         <h3>Scan QR Pembayaran</h3>
-
-        <img id="qrimage" class="qr-img" alt="QR Pembayaran">
+        <img id="qrimage" class="qr-img" src="assets/images/qr.png">
 
         <button onclick="sendWA()" class="btn-wa">
             Kirim Bukti ke WhatsApp
         </button>
-
     </div>
-
 </section>
 
 <script src="assets/js/script.js"></script>
-
 </body>
 </html>
