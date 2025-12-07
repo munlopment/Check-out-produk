@@ -1,87 +1,100 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Munlopment Store</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Munlopment Store — Premium Digital Services</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
-
-<!-- LOADER -->
-<div class="page-loader" id="loader">
+  <!-- page loader -->
+  <div id="page-loader" class="page-loader" aria-hidden="true">
     <div class="loader-box">
-        <div class="spinner"></div>
-        <p>Memuat...</p>
+      <div class="spinner"></div>
+      <div class="loader-text">Memuat…</div>
     </div>
-</div>
+  </div>
 
-<!-- HEADER -->
-<header class="site-header">
+  <header class="site-header">
     <div class="header-inner">
-        <img src="assets/images/logo.png" class="logo">
-        <div>
-            <h1 class="brand-title">Munlopment Store</h1>
-            <p class="brand-sub">Pelayanan cepat • Produk premium</p>
-        </div>
+      <img src="assets/images/logo.png" alt="Munlopment Store" class="logo" id="siteLogo" />
+      <div class="brand">
+        <h1 class="brand-title">Munlopment Store</h1>
+        <p class="brand-sub">Premium Digital Services • Harga Terjangkau</p>
+      </div>
     </div>
-</header>
+  </header>
 
-<!-- NAV -->
-<nav class="main-nav">
+  <nav class="main-nav" role="navigation" aria-label="Utama">
     <a href="index.html" class="nav-link active">Home</a>
     <a href="product.html" class="nav-link">Produk</a>
-</nav>
+  </nav>
 
-<!-- BANNER -->
-<section class="section">
-    <img src="assets/images/banner.png" class="banner-img" alt="Banner Store">
-</section>
+  <main class="main" id="main">
+    <!-- Hero -->
+    <section class="hero" aria-label="Highlight">
+      <img class="hero-img" src="assets/images/banner.png" alt="Banner Munlopment Store" loading="lazy">
+      <div class="hero-content">
+        <h2 class="hero-title">Solusi Akun Premium, Aman & Cepat</h2>
+        <p class="hero-sub">Streaming, Musik & Layanan Digital — Proses cepat, bukti jelas, dukungan WA 24/7.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="product.html">Lihat Produk</a>
+        </div>
+      </div>
+    </section>
 
-<!-- OPENING -->
-<section class="section">
-    <h2 class="section-title">Selamat Datang</h2>
-    <p class="section-sub">
-        Munlopment Store menyediakan berbagai layanan digital seperti Netflix, Spotify, Disney, YouTube Premium dan lainnya.
-        Pelayanan cepat, aman, dan terpercaya.
-    </p>
-</section>
+    <!-- Produk Populer -->
+    <section class="section" id="produk">
+      <h2 class="section-title">Produk Terpopuler</h2>
+      <p class="section-sub">Klik produk untuk melihat lebih lengkap di halaman produk.</p>
 
-<!-- FLOATING WA -->
-<a class="fab-wa" href="https://wa.me/6285282788041" target="_blank">
-    <img src="assets/icons/wa.svg" width="28" alt="WhatsApp">
-</a>
-<!-- POPUP DESKRIPSI -->
-<div id="popup" class="popup">
-    <div class="popup-box">
-        <h3>Konfirmasi Checkout</h3>
+      <div class="product-grid">
+        <!-- Kartu produk 1 -->
+        <article class="card product-card">
+          <img class="card-img" src="assets/images/products/netflix.png" alt="Netflix Premium">
+          <div class="card-body">
+            <h3 class="card-title">Netflix Premium - 1 Bulan</h3>
+            <p class="card-note">Streaming 4K • Semua perangkat</p>
+            <div class="card-footer">
+              <div class="price">Rp 25.000</div>
+              <a class="btn btn-sm" href="product.html?id=netflix-1">Lihat Detail</a>
+            </div>
+          </div>
+        </article>
 
-        <p><b id="pName"></b></p>
-        <p>Total: <b id="pPrice"></b></p>
+        <!-- Kartu produk 2 -->
+        <article class="card product-card">
+          <img class="card-img" src="assets/images/products/netflix1.png" alt="Netflix Akun Premium">
+          <div class="card-body">
+            <h3 class="card-title">Netflix Akun Premium</h3>
+            <p class="card-note">Akun penuh • Garansi</p>
+            <div class="card-footer">
+              <div class="price">Rp 190.000</div>
+              <a class="btn btn-sm" href="product.html?id=netflix-2">Lihat Detail</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <p class="desc">
-            Silakan baca deskripsi terlebih dahulu. Setelah setuju, centang kotak di bawah untuk melanjutkan proses checkout.
-        </p>
+    <!-- About / Tentang Kami -->
+    <section class="section" id="about">
+      <h2 class="section-title">Tentang Kami</h2>
+      <p class="section-sub">Munlopment Store menyediakan layanan akun premium untuk berbagai platform digital dengan harga terjangkau dan dukungan pelanggan 24/7.</p>
+    </section>
+  </main>
 
-        <label class="check">
-            <input type="checkbox" id="agree" onchange="toggleConfirm()">
-            Saya sudah membaca dan setuju.
-        </label>
+  <!-- Floating WhatsApp -->
+  <a id="fab-wa" class="fab-wa" href="https://wa.me/6285282788041" target="_blank" rel="noopener" aria-label="Hubungi via WhatsApp">
+    <img src="assets/icons/wa.svg" width="28">
+  </a>
 
-        <button id="confirmBtn" class="btn-sm" disabled onclick="goCheckout()">Lanjutkan</button>
-        <button class="btn-close" onclick="closePopup()">Tutup</button>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <small>© <span id="year"></span> Munlopment Store — All rights reserved.</small>
     </div>
-</div>
-<script src="assets/js/script.js"></script>
+  </footer>
 
-<script>
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("loader").classList.add("hide");
-    }, 400);
-});
-</script>
-
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>
