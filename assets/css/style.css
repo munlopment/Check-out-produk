@@ -574,13 +574,13 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-.qr-container {
+.qr-code {
     display: flex;
     justify-content: center; /* horizontal center */
     align-items: center;    /* vertical center */
     height: 100%;           /* pastikan container cukup tinggi */
 }
-.qr-container img {
+.qr-code img {
     max-width: 250px;       /* ukuran QR */
     height: auto;
 }
@@ -608,7 +608,7 @@ body {
 }
 
 /* Floating WA button */
-.fab-wa pf img {
+.fab-wa img {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
      }
 /* Logo dan profil bulat */
