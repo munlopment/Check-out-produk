@@ -153,6 +153,71 @@
       if(e.target === popup) popup.style.display = 'none';
     };
   }
+  function popupProduct(name, desc, price) {
+  popupTitle.innerText = name;
+
+  // Deskripsi lengkap untuk Sharing 1 Bulan 1 Profil UHD
+  if(name === "Sharing 1 Bulan 1 Profil UHD (Region ID)") {
+    popupDesc.innerHTML = `
+      <strong>NETFLIX PREMIUM SHARING 1 BULAN</strong><br>
+      (Sebelum membeli baca deskripsi sampai habis)<br><br>
+      
+      <strong>Keuntungan Netflix:</strong><br>
+      ✅ Premium streaming sepuasnya<br>
+      ✅ All device (TV, HP, Laptop, PC, Mac, iOS, dll)<br>
+      ✅ Kualitas 4K UHD<br>
+      ✅ Legal NETFLIX 100% Indonesia<br><br>
+
+      <strong>Rules:</strong><br>
+      1. Dilarang reset password!<br>
+      2. Dilarang login logout!<br>
+      3. Hanya untuk 1 Device, tidak bisa Multi Login!<br>
+      4. Dilarang share akun/profile ke orang lain<br>
+      5. Dilarang diperjualbelikan<br>
+      6. Tidak menerima reseller<br>
+      7. Dilarang ganti-ganti device, nanti server terlock dan susah login<br>
+      8. Jangan spam chat, admin akan membalas dari paling bawah<br><br>
+
+      Jika akun terbukti dijual atau dibagikan ke orang lain, akun akan ditarik!<br><br>
+
+      <strong>PENGUMUMAN: Aturan baru server Netflix terbatas</strong><br>
+      Halo Sultan Digital!<br>
+      Netflix membatasi server pengguna. Akun sharing dari kota/negara berbeda bisa terdeteksi, login susah, server dibatasi. 
+      Kami akan tetap membantu jika kesulitan login.<br><br>
+
+      <strong>Instruksi Login:</strong><br>
+      - Clear cache sebelum login<br>
+      - Gunakan paket data jika login via WiFi, atau sebaliknya<br>
+      - Bisa pakai VPN server Indonesia<br>
+      - Jika login di TV/Laptop, hotspot dari HP ke TV<br>
+      - Jika masih gagal, hubungi penjual untuk kode login<br><br>
+
+      Mohon chat dengan sopan, admin pasti merespon.<br>
+      Jangan spam chat agar cepat dibalas. ⭐⭐⭐⭐⭐
+    `;
+  } else {
+    popupDesc.innerText = desc;
+  }
+
+  popup.setAttribute('aria-hidden','false');
+  popup.style.display = 'flex';
+  agreeTerms.checked = false;
+  popupCheckout.disabled = true;
+
+  agreeTerms.addEventListener('change', () => {
+    popupCheckout.disabled = !agreeTerms.checked;
+  });
+
+  popupCheckout.onclick = () => {
+    localStorage.setItem('coName', name);
+    localStorage.setItem('coPrice', price);
+    window.location.href = 'checkout.html';
+  };
+
+  popup.onclick = (e) => {
+    if(e.target === popup) popup.style.display = 'none';
+  };
+  }
 </script>
 </body>
             </html>
