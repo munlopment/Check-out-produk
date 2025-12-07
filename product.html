@@ -9,7 +9,6 @@
 
 <body>
 
-<!-- LOADER -->
 <div class="page-loader" id="loader">
     <div class="loader-box">
         <div class="spinner"></div>
@@ -17,7 +16,6 @@
     </div>
 </div>
 
-<!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
         <img src="assets/images/logo.png" class="logo" alt="Logo">
@@ -28,111 +26,109 @@
     </div>
 </header>
 
-<!-- NAV -->
 <nav class="main-nav">
     <a href="index.html" class="nav-link">Home</a>
     <a href="product.html" class="nav-link active">Produk</a>
 </nav>
 
-<!-- SECTION PRODUK -->
 <section class="section">
     <h2 class="section-title">Produk Digital</h2>
     <p class="section-sub">Pilih produk terbaik untuk kebutuhan streaming Anda</p>
 
     <div class="product-grid">
 
-        <!-- CARD 1 -->
+        <!-- Produk 1 -->
         <div class="card">
-            <img src="assets/images/products/netflix.png" class="card-img" alt="Netflix Sharing">
+            <img src="assets/images/products/netflix.png" class="card-img">
             <div class="card-body">
                 <h3 class="card-title">Netflix Sharing (1 Profil • 1 Bulan)</h3>
                 <p class="card-note">Garansi penuh • Akses aman</p>
 
                 <div class="card-footer">
                     <span class="price">Rp 25.000</span>
-                    <button class="btn-sm" onclick="checkout('Netflix Sharing • 1 Profil • 1 Bulan', '25000')">
-                        Beli
-                    </button>
+                    <button class="btn-sm checkoutBtn"
+                        data-name="Netflix Sharing 1 Profil 1 Bulan"
+                        data-price="25000">Beli</button>
                 </div>
             </div>
         </div>
 
-        <!-- CARD 2 -->
+        <!-- Produk 2 -->
         <div class="card">
-            <img src="assets/images/products/netflix1.png" class="card-img" alt="Netflix Premium">
+            <img src="assets/images/products/netflix1.png" class="card-img">
             <div class="card-body">
                 <h3 class="card-title">Netflix Premium (Full Garansi)</h3>
                 <p class="card-note">Kualitas UHD • Profil personal</p>
 
                 <div class="card-footer">
                     <span class="price">Rp 190.000</span>
-                    <button class="btn-sm" onclick="checkout('Netflix Premium', '190000')">
-                        Beli
-                    </button>
+                    <button class="btn-sm checkoutBtn"
+                        data-name="Netflix Premium"
+                        data-price="190000">Beli</button>
                 </div>
             </div>
         </div>
 
-        <!-- CARD 3 -->
+        <!-- Produk 3 -->
         <div class="card">
-            <img src="assets/images/products/spotify.png" class="card-img" alt="Spotify">
+            <img src="assets/images/products/spotify.png" class="card-img">
             <div class="card-body">
                 <h3 class="card-title">Spotify Premium 1 Bulan</h3>
                 <p class="card-note">Akun aman • Tanpa iklan</p>
 
                 <div class="card-footer">
                     <span class="price">Rp 15.000</span>
-                    <button class="btn-sm" onclick="checkout('Spotify Premium 1 Bulan', '15000')">
-                        Beli
-                    </button>
+                    <button class="btn-sm checkoutBtn"
+                        data-name="Spotify Premium 1 Bulan"
+                        data-price="15000">Beli</button>
                 </div>
             </div>
         </div>
 
-        <!-- CARD 4 -->
+        <!-- Produk 4 -->
         <div class="card">
-            <img src="assets/images/products/yt.png" class="card-img" alt="YouTube Premium">
+            <img src="assets/images/products/yt.png" class="card-img">
             <div class="card-body">
                 <h3 class="card-title">YouTube Premium</h3>
                 <p class="card-note">Tanpa iklan • Background play</p>
 
                 <div class="card-footer">
                     <span class="price">Rp 30.000</span>
-                    <button class="btn-sm" onclick="checkout('YouTube Premium', '30000')">
-                        Beli
-                    </button>
+                    <button class="btn-sm checkoutBtn"
+                        data-name="YouTube Premium"
+                        data-price="30000">Beli</button>
                 </div>
             </div>
         </div>
 
-        <!-- CARD 5 -->
+        <!-- Produk 5 -->
         <div class="card">
-            <img src="assets/images/products/viu.png" class="card-img" alt="VIU">
+            <img src="assets/images/products/viu.png" class="card-img">
             <div class="card-body">
                 <h3 class="card-title">VIU Premium 1 Bulan</h3>
                 <p class="card-note">Akses drama Asia lengkap</p>
 
                 <div class="card-footer">
                     <span class="price">Rp 20.000</span>
-                    <button class="btn-sm" onclick="checkout('VIU Premium 1 Bulan', '20000')">
-                        Beli
-                    </button>
+                    <button class="btn-sm checkoutBtn"
+                        data-name="VIU Premium 1 Bulan"
+                        data-price="20000">Beli</button>
                 </div>
             </div>
         </div>
 
-        <!-- CARD 6 -->
+        <!-- Produk 6 -->
         <div class="card">
-            <img src="assets/images/products/disney.png" class="card-img" alt="Disney+">
+            <img src="assets/images/products/disney.png" class="card-img">
             <div class="card-body">
                 <h3 class="card-title">Disney+ Hotstar 1 Bulan</h3>
-                <p class="card-note">Film Disney • Marvel • Pixar</p>
+                <p class="card-note">Marvel • Disney • Pixar</p>
 
                 <div class="card-footer">
                     <span class="price">Rp 35.000</span>
-                    <button class="btn-sm" onclick="checkout('Disney+ Hotstar 1 Bulan', '35000')">
-                        Beli
-                    </button>
+                    <button class="btn-sm checkoutBtn"
+                        data-name="Disney+ Hotstar 1 Bulan"
+                        data-price="35000">Beli</button>
                 </div>
             </div>
         </div>
@@ -140,22 +136,20 @@
     </div>
 </section>
 
-<!-- BIG SPACE supaya WA tidak menutupi tombol -->
 <div style="height: 140px;"></div>
 
-<!-- FLOATING WA -->
 <a class="fab-wa" href="https://wa.me/6285282788041" target="_blank">
-    <img src="assets/icons/wa.svg" width="28" alt="WhatsApp">
+    <img src="assets/icons/wa.svg" width="28">
 </a>
 
 <script src="assets/js/script.js"></script>
 
 <script>
-    window.addEventListener("load", () => {
-        setTimeout(() => {
-            document.getElementById("loader").classList.add("hide");
-        }, 400);
+document.querySelectorAll(".checkoutBtn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        popupProduct(btn.dataset.name, btn.dataset.price);
     });
+});
 </script>
 
 </body>
