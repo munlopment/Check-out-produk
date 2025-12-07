@@ -69,7 +69,7 @@ const popupCheckout = document.getElementById('popupCheckout');
 
 function popupProduct(name, desc, price) {
   popupTitle.innerText = name;
-  popupDesc.innerText = desc;
+  popupDesc.innerHTML = desc;
   popup.setAttribute('aria-hidden','false');
   popup.style.display = 'flex';
   agreeTerms.checked = false;
