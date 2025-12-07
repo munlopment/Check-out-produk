@@ -1,30 +1,47 @@
-/* ===================== GLOBAL ===================== */
+/* =========================
+   RESET & BASE
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: #f3f4f6;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-/* ===================== LOADER ===================== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   PAGE LOADER
+========================= */
 .page-loader {
   position: fixed;
-  inset: 0;
-  background: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 9999;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.page-loader.hide {
+.page-loader.hidden {
   opacity: 0;
   visibility: hidden;
 }
@@ -34,74 +51,84 @@ body {
 }
 
 .spinner {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border: 5px solid #eee;
-  border-top-color: #ff3e3e;
+  border-top-color: #ff3f3f;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
 .loader-text {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
 }
 
-/* ===================== HEADER ===================== */
+/* =========================
+   HEADER
+========================= */
 .site-header {
   background: #fff;
-  padding: 15px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .logo {
-  height: 50px;
+  width: 50px;
+  height: auto;
 }
 
 .brand-title {
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .brand-sub {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 12px;
+  color: #777;
 }
 
-/* ===================== NAV ===================== */
+/* =========================
+   NAVIGATION
+========================= */
 .main-nav {
   display: flex;
   justify-content: center;
-  background: #ff3e3e;
+  background: #ff3f3f;
+  padding: 8px 0;
 }
 
-.nav-link {
+.main-nav .nav-link {
   color: #fff;
-  text-decoration: none;
-  padding: 12px 20px;
   font-weight: 500;
-  transition: background 0.3s;
+  margin: 0 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
-.nav-link:hover, .nav-link.active {
-  background: #e23333;
+.main-nav .nav-link.active,
+.main-nav .nav-link:hover {
+  background: rgba(255,255,255,0.2);
 }
 
-/* ===================== HERO ===================== */
+/* =========================
+   HERO
+========================= */
 .hero {
   position: relative;
   text-align: center;
@@ -110,8 +137,8 @@ body {
 
 .hero-img {
   width: 100%;
+  height: auto;
   display: block;
-  filter: brightness(0.7);
 }
 
 .hero-content {
@@ -120,96 +147,83 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  padding: 20px;
   max-width: 90%;
 }
 
 .hero-title {
-  font-size: 2rem;
+  font-size: 36px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .hero-sub {
-  font-size: 1rem;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 
 .hero-actions .btn {
-  padding: 10px 25px;
+  padding: 10px 20px;
   font-weight: 600;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-primary {
-  background: #ff3e3e;
+.hero-actions .btn-primary {
+  background: #ff3f3f;
   color: #fff;
 }
 
-.btn-primary:hover {
-  background: #e23333;
+.hero-actions .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
-/* ===================== PRODUK ===================== */
-.section {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.section-sub {
-  font-size: 1rem;
-  color: #666;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
+/* =========================
+   PRODUK GRID
+========================= */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
 }
 
 .card {
   background: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .card-img {
   width: 100%;
-  display: block;
+  height: auto;
+  object-fit: cover;
 }
 
 .card-body {
-  padding: 15px;
+  padding: 12px 16px;
 }
 
 .card-title {
-  font-size: 1.2rem;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .card-note {
-  font-size: 0.9rem;
+  font-size: 13px;
   color: #777;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .card-footer {
@@ -220,52 +234,90 @@ body {
 
 .price {
   font-weight: 700;
-  color: #ff3e3e;
+  color: #ff3f3f;
 }
 
 .btn-sm {
-  background: #ff3e3e;
-  color: #fff;
   padding: 6px 12px;
-  font-size: 0.85rem;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: #ff3f3f;
+  border-radius: 4px;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .btn-sm:hover {
-  background: #e23333;
+  background: #e53939;
+  transform: translateY(-2px);
 }
 
-/* ===================== ABOUT ===================== */
-#about {
-  background: #fff5f5;
-  border-radius: 10px;
+/* =========================
+   ABOUT / TENTANG KAMI
+========================= */
+.section {
+  padding: 48px 16px;
+  text-align: center;
 }
 
-/* ===================== FAB WA ===================== */
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================
+   FLOATING WA
+========================= */
 .fab-wa {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  padding: 12px;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 999;
 }
 
-.fab-wa img {
-  display: block;
+.fab-wa:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
 
-/* ===================== FOOTER ===================== */
+/* =========================
+   FOOTER
+========================= */
 .site-footer {
   background: #222;
   color: #fff;
-  padding: 20px;
   text-align: center;
-  font-size: 0.9rem;
+  padding: 16px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  .hero-sub {
+    font-size: 14px;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
   }
