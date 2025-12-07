@@ -205,3 +205,13 @@ Berikut bukti pembayaran saya.`;
     });
 
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("page-loader");
+
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add("hide");
+    }, 300);
+  }
+});
