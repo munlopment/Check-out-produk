@@ -568,26 +568,11 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.qr-code {
-  margin-top: 0.8rem;
-  max-width: 200px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-.qr-code {
-    display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center;    /* vertical center */
-    height: 100%;           /* pastikan container cukup tinggi */
-}
-.qr-code img {
-    max-width: 250px;       /* ukuran QR */
-    height: auto;
-}
+
 /* ====== QR CODE CENTER & LARGER ====== */
 .payment-detail .qr-code {
     display: block;               /* agar block element */
-    margin: 1rem auto 0 auto;     /* center horizontal dan spacing top */
+    margin: 1rem auto 0 auto;     /* center horizontal dan spacingtop */
     max-width: 250px;             /* ukuran cukup besar */
     width: 80%;                   /* responsif */
     height: auto;                 /* proporsional */
