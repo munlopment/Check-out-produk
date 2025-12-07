@@ -156,3 +156,8 @@ a:focus,button:focus{
   outline:3px solid rgba(0,123,255,0.18);
   outline-offset:3px;
 }
+
+.fab-wa img{
+    width:32px;height:32px;
+    object-fit:contain;
+}
