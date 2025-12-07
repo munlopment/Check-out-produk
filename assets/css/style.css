@@ -549,3 +549,28 @@ body {
 #confirmPayment:hover:enabled {
   background: #e63b3f;
    }
+.payment-detail {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.payment-box {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.qr-code {
+  margin-top: 0.8rem;
+  max-width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
