@@ -574,3 +574,40 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+/* Semua logo/profil di header, card, atau checkout */
+.logo,
+.card-img,
+.fab-wa img {
+  border-radius: 50%;       /* Membuat bulat */
+  background: transparent;  /* Pastikan tidak ada background */
+  object-fit: cover;        /* Agar gambar tetap proporsional */
+  display: block;
+}
+
+/* Opsional: tambahkan shadow supaya lebih elegan */
+.logo {
+  width: 80px;             /* sesuaikan ukuran */
+  height: 80px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card-img {
+  width: 100px;            /* bisa disesuaikan */
+  height: 100px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Floating WA button */
+.fab-wa img {
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+     }
+/* Semua logo/profil di header, card, atau checkout */
+.logo,
+.card-img,
+.fab-wa img {
+  border-radius: 50%;       /* Membuat bulat */
+  background: transparent;  /* Pastikan tidak ada background */
+  object-fit: cover;        /* Agar gambar tetap proporsional */
+  display: block;
+}
