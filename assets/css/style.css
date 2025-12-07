@@ -141,6 +141,10 @@ body{
     box-shadow:0 12px 36px rgba(37,211,102,0.18);
     z-index:99;
 }
+.fab-wa img{
+    width:32px;height:32px;
+    object-fit:contain;
+}
 
 /* RESPONSIVE */
 @media (min-width:880px){
@@ -151,4 +155,4 @@ body{
 a:focus,button:focus{
   outline:3px solid rgba(0,123,255,0.18);
   outline-offset:3px;
-    }
+}
