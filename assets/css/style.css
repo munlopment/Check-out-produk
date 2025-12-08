@@ -437,7 +437,9 @@ body {
     display: none;
     align-items: flex-start;      /* BUAT POPUP ADA DI ATAS, BUKAN TENGAH */
     justify-content: center;
-    padding: 20px 10px;          /* Biar tidak nempel banget */
+    padding: 20px 24px ;    /* Biar tidak nempel banget */
+   box-shadow: 0 8px 25px;
+   rgba(0,0,0,0.25);
     overflow-y: auto;            /* JAGA-JAGA jika popup terlalu tinggi */
     z-index: 9999;
 }
