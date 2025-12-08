@@ -71,9 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Ambil data dari localStorage
   const coName = localStorage.getItem('coName') || 'Produk Digital';
-  const coPrice = localStorage.getItem('coPrice') || 0;
-  document.getElementById('coName').innerText = coName;
-  document.getElementById('coPrice').innerText = 'Rp ' + coPrice.toLocaleString('id-ID');
+const coPrice = parseInt(localStorage.getItem('coPrice')) || 0;
+document.getElementById('coName').innerText = coName;
+document.getElementById('coPrice').innerText = 'Rp ' + coPrice.toLocaleString('id-ID');
 
   // Pilihan metode pembayaran
   const radios = document.querySelectorAll('input[name="payMethod"]');
