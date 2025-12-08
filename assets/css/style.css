@@ -446,7 +446,9 @@ body {
   padding: 2rem;
   max-width: 500px;
   width: 100%;
-  text-align: center;
+  max-height: 80vh;      /* Tambahkan: maksimal tinggi 80% dari viewport */
+  overflow-y: auto;      /* Tambahkan: scroll vertical jika konten terlalu panjang */
+  text-align: left;      /* Opsional: agar teks panjang lebih enak dibaca */
   position: relative;
   animation: popupFade 0.3s ease-in-out;
 }
@@ -454,6 +456,12 @@ body {
 @keyframes popupFade {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+@media (max-width: 480px) {
+  .popup-box {
+    padding: 1rem;
+    max-height: 90vh;
+  }
 }
 
 .popup-box h3 {
